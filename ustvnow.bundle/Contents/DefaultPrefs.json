@@ -1,0 +1,14 @@
+[
+    {
+        "id": "username",
+        "type": "text",
+        "label": "USTVnow Username",
+        "default": ""
+    },
+    {
+        "id": "password",
+        "type": "text",
+        "label": "USTVnow Password",
+        "default": "",
+    }
+]
