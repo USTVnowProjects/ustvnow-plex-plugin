@@ -1,4 +1,3 @@
-import content
 import config
 import string
 import random
@@ -34,6 +33,7 @@ def MainMenu():
 
     oc = ObjectContainer(no_cache = True)
     linkcode = "plex" + Request.Headers['X-Plex-Client-Identifier']
+    linkcode = linkcode.replace("-", "")
     linkurl = config.LINK_URL % linkcode
     token = ""
 
@@ -224,8 +224,13 @@ def Link(title, thumb):
 
 @route(PREFIX + '/upgrade')
 ##########################################################################################
-def ShowErrorUpgrade(title):
-    message = "Upgrade now at www.%s.com to view this channel" % config.BRAND
+def ShowErrorUpgrade(title, token):
+
+    if token:
+        message = "Upgrade now at www.%s.com to view this channel" % config.BRAND
+    else:
+        message = "Link your account by scanning the QR code" % config.BRAND
+
     return ObjectContainer(
         header = title,
         message = message,
@@ -264,6 +269,7 @@ def Live(title, token):
                     Callback(
                         ShowErrorUpgrade,
                         title = "Upgrade - " + sname + " - " + prg["title"],
+                        token = token
                     ),
                 title = sname + " - " + prg["title"],
                 thumb = thumbUrl
@@ -380,6 +386,7 @@ def Channel(title, scode, callsign, token, rand):
                         Callback(
                             ShowErrorUpgrade,
                             title = "Upgrade - " + title + " - " + prg["title"],
+                            token = token
                         ),
                     title = "NOW AIRING - " + prg["title"],
                     thumb = thumbUrl
