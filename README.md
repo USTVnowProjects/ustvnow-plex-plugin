@@ -8,7 +8,7 @@ This plugin for [Plex Media Server](https://www.plex.tv/downloads) allows you to
 These steps assume you have an existing Plex Media Server and you are already using the Plex app on a Smart TV or streaming media device. 
 
  * Locate the Plex channel plugin directory on your personal Plex Media Server
- * Install the official USTVnow channel plugin: https://github.com/USTVnowProjects/plex 
+ * Install the official USTVnow channel plugin: https://github.com/USTVnowProjects/ustvnow-plex-plugin
  * Restart your Plex Media Server so the new plugin is detected
  * Open the USTVnow channel inside a Plex App on your Smart TV or streaming media device
  * Start the linking process to link your USTVnow account with your Plex player by locating the Link code image. 
